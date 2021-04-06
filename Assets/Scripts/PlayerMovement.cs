@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 veloctiy;
 
     public Transform groundCheck;
-    public float groundDistance = 0.4f;
+    public float groundDistance = 0.4f; // radius of sphere
     public LayerMask groundMask;
     bool isGrounded;
     bool isCrouching;
