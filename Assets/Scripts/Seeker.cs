@@ -6,6 +6,7 @@ public class Seeker : MonoBehaviour
 {
     public Transform player;
     public float speed = 5f;
+    public bool hitPlayer;
 
 
     void Start() {
@@ -30,6 +31,7 @@ public class Seeker : MonoBehaviour
 
     void HitPlayer() {
         Debug.Log("You've been hit!");
+        hitPlayer = true;
     }
 
     void OnCollisionEnter(Collision collision) {

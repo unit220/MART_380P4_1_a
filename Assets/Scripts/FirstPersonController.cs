@@ -42,7 +42,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
-        //[SerializeField] public GameObject gameMaster;
 
         // Use this for initialization
         private void Start()
@@ -64,10 +63,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void Update()
         {
 
-            // if(gameMaster.) {
-            //     this.enabled = false;
-            //     return;
-            // }
+            if(GameManager.gameEnded) {
+                this.enabled = false;
+                return;
+            }
 
             RotateView();
             // the jump state needs to read here to make sure it is not missed
