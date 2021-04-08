@@ -7,6 +7,11 @@ public class GameManager : MonoBehaviour
     public static bool gameEnded = false;
     public Seeker seeker;
     public GameObject gameOverUI;
+    public UnityStandardAssets.Characters.FirstPerson.FirstPersonController controller;
+
+    void Start() {
+        gameEnded = false;
+    }
 
     // Update is called once per frame
     void Update() {
@@ -19,9 +24,11 @@ public class GameManager : MonoBehaviour
     }
 
     void EndGame() {
-        gameEnded = true;
-        gameOverUI.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        controller.m_MouseLook.lockCursor = false;
+        gameEnded = true;
+        gameOverUI.SetActive(true);
+        // controller.m_MouseLook.lockCursor = false;
     }
 }
