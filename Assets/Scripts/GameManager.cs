@@ -6,7 +6,9 @@ public class GameManager : MonoBehaviour
 {
     public static bool gameEnded = false;
     public Seeker seeker;
+    public Trigger trigger;
     public GameObject gameOverUI;
+    public GameObject victoryUI;
     public UnityStandardAssets.Characters.FirstPerson.FirstPersonController controller;
 
     void Start() {
@@ -20,6 +22,9 @@ public class GameManager : MonoBehaviour
 
         if (seeker.hitPlayer == true){
             EndGame();
+        } 
+        else if (trigger.inTrigger) {
+            WinGame();
         }
     }
 
@@ -30,5 +35,13 @@ public class GameManager : MonoBehaviour
         gameEnded = true;
         gameOverUI.SetActive(true);
         // controller.m_MouseLook.lockCursor = false;
+    }
+
+    void WinGame() {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        controller.m_MouseLook.lockCursor = false;
+        gameEnded = true;
+        victoryUI.SetActive(true);
     }
 }
