@@ -21,6 +21,9 @@ public class WallRun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        var vel = controller.GetComponent<Rigidbody>().velocity;
+        var speed = vel.magnitude;
+        Debug.Log(vel);
         // Are we on the wall?
         if(Physics.CheckSphere(wallCheckL.position, wallDistance, wallMask) || Physics.CheckSphere(wallCheckR.position, wallDistance, wallMask)) {
             isWalled = true;
@@ -30,9 +33,9 @@ public class WallRun : MonoBehaviour
 
         if(isWalled) {  // resetting the velocity if we hit the ground
             if(Physics.CheckSphere(wallCheckR.position, wallDistance, wallMask) && !controller.m_CharacterController.isGrounded)
-                playerCam.Rotate(Vector3.forward,10);  //tilt the cam left if on right wall
+                playerCam.Rotate(Vector3.forward,5);  //tilt the cam left if on right wall
             else if(Physics.CheckSphere(wallCheckL.position, wallDistance, wallMask) && !controller.m_CharacterController.isGrounded)
-                playerCam.Rotate(Vector3.forward,-10);  //tilt the cam right if on left wall
+                playerCam.Rotate(Vector3.forward,-5);  //tilt the cam right if on left wall
             controller.m_GravityMultiplier = 1;
             controller.m_RunSpeed = 12;
         } else {
