@@ -5,6 +5,7 @@ using UnityEngine;
 public class Trigger : MonoBehaviour
 {
     public bool inTrigger;
+    public AudioSource playSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class Trigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         //Debug.Log("Trigger");'
+        playSound.Play();
         inTrigger = true;
     }
 }
