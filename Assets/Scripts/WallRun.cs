@@ -10,6 +10,7 @@ public class WallRun : MonoBehaviour
     public LayerMask wallMask;
     public Transform wallCheckL;
     public Transform wallCheckR;
+    public Transform playerCam;
     public float wallDistance = 0.4f; // radius of sphere
     bool isWalled;
 
@@ -28,6 +29,10 @@ public class WallRun : MonoBehaviour
         }
 
         if(isWalled) {  // resetting the velocity if we hit the ground
+            if(Physics.CheckSphere(wallCheckR.position, wallDistance, wallMask) && !controller.m_CharacterController.isGrounded)
+                playerCam.Rotate(Vector3.forward,10);  //tilt the cam left if on right wall
+            else if(Physics.CheckSphere(wallCheckL.position, wallDistance, wallMask) && !controller.m_CharacterController.isGrounded)
+                playerCam.Rotate(Vector3.forward,-10);  //tilt the cam right if on left wall
             controller.m_GravityMultiplier = 1;
             controller.m_RunSpeed = 12;
         } else {
