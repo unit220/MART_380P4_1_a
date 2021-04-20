@@ -242,7 +242,7 @@ MonoBehaviour:
     m_Bits: 257
   headDistance: 0.4
   crouchedHeight: 0.5
-  crouchKey: 306
+  crouchKey: 99
 --- !u!114 &28470710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +261,7 @@ MonoBehaviour:
     m_Bits: 512
   wallCheckL: {fileID: 1952384618}
   wallCheckR: {fileID: 1413594419}
+  playerCam: {fileID: 1378242065}
   wallDistance: 0.4
 --- !u!1 &34482804
 GameObject:
@@ -2347,6 +2348,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324305877}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1378242065 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400002, guid: 5e9e851c0e142814dac026a256ba2ac0,
+    type: 3}
+  m_PrefabInstance: {fileID: 426605695}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1413594418
 GameObject:
   m_ObjectHideFlags: 0
