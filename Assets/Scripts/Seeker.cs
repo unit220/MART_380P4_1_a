@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Seeker : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class Seeker : MonoBehaviour
 
         // moving
         transform.Translate(direction.normalized * disatanceThisFrame, Space.World);
+        transform.DOLookAt(new Vector3(player.position.x, transform.position.y, player.position.z), .25f);
     }
 
     void HitPlayer() {
