@@ -3,6 +3,7 @@
 public class Crouch : MonoBehaviour
 {
     CharacterController controller;
+    public UnityStandardAssets.Characters.FirstPerson.FirstPersonController controller2;
     bool isCrouching = false;
     public Transform headCheck;
     public LayerMask defaultMask;
@@ -41,8 +42,10 @@ public class Crouch : MonoBehaviour
     void checkCrouch() {
         if(isCrouching == true) {
             controller.height = crouchedHeight;
+            controller2.m_RunSpeed = 5;
         } else {
             controller.height = origincalHeight;
+            controller2.m_RunSpeed = 10; // hard coded
         }
     }
 }
