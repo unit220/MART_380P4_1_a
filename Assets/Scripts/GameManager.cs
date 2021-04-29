@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
         controller.m_MouseLook.lockCursor = false;
         gameEnded = true;
         gameOverUI.SetActive(true);
+        Time.timeScale = 0;
         // controller.m_MouseLook.lockCursor = false;
     }
 
@@ -43,5 +44,6 @@ public class GameManager : MonoBehaviour
         controller.m_MouseLook.lockCursor = false;
         gameEnded = true;
         victoryUI.SetActive(true);
+        Time.timeScale = 0;
     }
 }
