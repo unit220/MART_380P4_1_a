@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
+using DG.Tweening;
 
 public class WallRun : MonoBehaviour
 {
@@ -33,9 +34,9 @@ public class WallRun : MonoBehaviour
 
         if(isWalled) {  // resetting the velocity if we hit the ground
             if(Physics.CheckSphere(wallCheckR.position, wallDistance, wallMask) && !controller.m_CharacterController.isGrounded)
-                playerCam.Rotate(Vector3.forward,5);  //tilt the cam left if on right wall
+                playerCam.DORotate(new Vector3(0, 0, 5), 0f, RotateMode.LocalAxisAdd);  //tilt the cam left if on right wall
             else if(Physics.CheckSphere(wallCheckL.position, wallDistance, wallMask) && !controller.m_CharacterController.isGrounded)
-                playerCam.Rotate(Vector3.forward,-5);  //tilt the cam right if on left wall
+                playerCam.DORotate(new Vector3(0, 0, -5), 0f, RotateMode.LocalAxisAdd);  //tilt the cam right if on left wall
             controller.m_GravityMultiplier = 1;
             //controller.m_RunSpeed = 12;
         } else {
